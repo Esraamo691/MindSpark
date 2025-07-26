@@ -214,7 +214,7 @@
         const userObject = jwt_decode(response.credential);
         localStorage.setItem("userEmail", userObject.email);
         localStorage.setItem("userName", userObject.name);
-        window.location.href = "Quiz.html";
+        location.replace("Quiz.html");
       }
     </script>
     <script src="JS/jquery-3.7.1.min.js"></script>

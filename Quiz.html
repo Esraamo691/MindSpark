@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz - App</title>
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="assets/images/quiz.png" type="image/x-icon" />
+
+    <!-- Meta tags -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+    <!-- animate css library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="position-relative">
+    <button class="btn btn-outline-success position-absolute logOut" onclick="logOut()">Log Out</button>
+    <h2 id="wel" class="shadow text-white animate__animated animate__heartBeat position-absolute "></h2>
+    <div class="container">
+       
+      <section class="col-md-8 mx-auto">
+        <header>
+          <h1 class="text-white text-center animate__animated animate__bounce">
+            <span class="text-animate d-inline-block rounded-3">
+              <span class="rounded-3 d-inline-block bg-dark p-3">
+                <img width="75px" src="assets/images/quiz.png" alt="" />
+                Quiz App
+              </span>
+            </span>
+          </h1>
+        </header>
+
+        <div id="questionsContainer">
+          <!-- (form) Questions Specifications -->
+          <form id="Questions_Specifications">
+            <!-- (input filed): amount -->
+            <div class="mb-3 animate__animated animate__zoomInDown">
+              <label class="form-label text-white" for="amount">Number Of Question:</label>
+              <input placeholder="Number of Questions" class="form-control" type="number" id="amount" name="amount" />
+            </div>
+
+            <!-- (input filed): category -->
+            <div class="mb-3 any animate__animated animate__zoomInDown">
+              <label class="form-label text-white" for="category">Questions Category:</label>
+              <select class="form-select" name="category" id="category">
+                <option value="any">Any Category</option>
+                <option value="9">General Knowledge</option>
+                <option value="10">Entertainment: Books</option>
+                <option value="11">Entertainment: Film</option>
+                <option value="12">Entertainment: Music</option>
+                <option value="13">Entertainment: Musicals &amp; Theatres</option>
+                <option value="14">Entertainment: Television</option>
+                <option value="15">Entertainment: Video Games</option>
+                <option value="16">Entertainment: Board Games</option>
+                <option value="17">Science &amp; Nature</option>
+                <option value="18">Science: Computers</option>
+                <option value="19">Science: Mathematics</option>
+                <option value="20">Mythology</option>
+                <option value="21">Sports</option>
+                <option value="22">Geography</option>
+                <option value="23">History</option>
+                <option value="24">Politics</option>
+                <option value="25">Art</option>
+                <option value="26">Celebrities</option>
+                <option value="27">Animals</option>
+                <option value="28">Vehicles</option>
+                <option value="29">Entertainment: Comics</option>
+                <option value="30">Science: Gadgets</option>
+                <option value="31">Entertainment: Japanese Anime &amp; Manga</option>
+                <option value="32">Entertainment: Cartoon &amp; Animations</option>
+              </select>
+            </div>
+
+            <!-- (input filed): type -->
+            <div class="mb-3 animate__animated animate__zoomInDown">
+              <label class="form-label text-white" for="type">Questions Type:</label>
+              <select class="form-select" name="type" id="type">
+                <option value="any">Any Type</option>
+                <option value="multiple">Multiple Choice</option>
+                <option value="boolean">True / False</option>
+              </select>
+            </div>
+
+            <!-- (input filed): difficulty -->
+            <div class="mb-3 animate__animated animate__zoomInDown">
+              <label class="form-label text-white" for="difficulty">Questions Difficulty:</label>
+              <select class="form-select" name="difficulty" id="difficulty">
+                <option value="any">Any Difficulty</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center animate__animated animate__zoomInDown">
+              <button id="startQuizButton" type="button" class="btn btn-success w-50">Start Quiz</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <div class="d-none alert alert-danger text-center">
+        <p>"Too Many Request Error"</p>
+
+        <button onclick="window.location.reload()" class="btn btn-danger">reload page</button>
+      </div>
+    </div>
+
+    <div
+      class="loaderContainer d-none bg-dark position-fixed bg-opacity-75 top-0 start-0 bottom-0 end-0 d-flex justify-content-center align-items-center">
+      <div style="width: 150px">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150">
+          <path
+            fill="none"
+            stroke="yellowgreen"
+            stroke-width="15"
+            stroke-linecap="round"
+            stroke-dasharray="300 385"
+            stroke-dashoffset="0"
+            d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z">
+            <animate
+              attributeName="stroke-dashoffset"
+              calcMode="spline"
+              dur="2"
+              values="685;-685"
+              keySplines="0 0 1 1"
+              repeatCount="indefinite"></animate>
+          </path>
+        </svg>
+      </div>
+    </div>
+ <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- bootstrap js -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- fire works -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <!-- main scripts -->
+    <script src="assets/js/scripts.js"></script>
+  </body>
+</html>
